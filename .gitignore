@@ -1,3 +1,5 @@
 maven-wrapper.jar
 .idea
 .mvn
+target
+.env
