@@ -6,7 +6,7 @@ import org.soa.entity.Shop;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-02-05T00:52:03+0200",
+    date = "2024-02-08T10:40:39+0200",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.2 (Oracle Corporation)"
 )
 @ApplicationScoped

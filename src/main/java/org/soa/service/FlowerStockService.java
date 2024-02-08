@@ -38,4 +38,19 @@ public class FlowerStockService {
         }
         throw new UserNotFoundException(flowerId.toString());
     }
+
+    @Transactional
+    public Integer refund(Long flowerId, Integer quantity){
+        List<FlowerStock> flowerStockList = flowerStockRepository.findByFlower(flowerId);
+        for(FlowerStock flowerStock : flowerStockList){
+            flowerStock.setQuantity(flowerStock.getQuantity()+quantity);
+            flowerStockRepository.persist(flowerStock);
+            JsonObject obj = new JsonObject();
+            obj.put("status", "ok");
+            obj.put("description", "quantity was changed sucesfully for the flower "+flowerId+" to "+ flowerStock.getQuantity());
+            emitter.send(obj);
+            return flowerStock.getQuantity();
+        }
+        throw new UserNotFoundException(flowerId.toString());
+    }
 }

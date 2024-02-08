@@ -20,4 +20,10 @@ public class FlowerStockResource {
     public Response changeFlowerDetails(@PathParam("flowerId") Long flowerId, @PathParam("quantity") Integer quantity) {
         return Response.accepted(flowerStockService.checkoutFromStock(flowerId,quantity)).build();
     }
+
+    @PUT
+    @Path("/refund/{flowerId}/{quantity}")
+    public Response refundFlowerDetails(@PathParam("flowerId") Long flowerId, @PathParam("quantity") Integer quantity) {
+        return Response.accepted(flowerStockService.refund(flowerId,quantity)).build();
+    }
 }
